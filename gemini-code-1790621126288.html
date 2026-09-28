@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar Paula Velez</title>
+    <script>
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // Tus enlaces exactos
+            var playStoreURL = "https://play.google.com/store/apps/details?id=io.onemobile.paulavelez";
+            var appStoreURL = "https://apps.apple.com/bw/app/paula-velez/id6797370245";
+
+            // Detectar iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = appStoreURL;
+            }
+            // Detectar Android
+            else if (/android/i.test(userAgent)) {
+                window.location.href = playStoreURL;
+            }
+            // Fallback (Si lo abren desde un PC)
+            else {
+                document.body.innerHTML = `
+                    <div style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+                        <h2>Descarga la app de Paula Velez</h2>
+                        <a href="${playStoreURL}" style="display: block; margin: 20px; text-decoration: none; color: #000;">Descargar para Android (Play Store)</a>
+                        <a href="${appStoreURL}" style="display: block; margin: 20px; text-decoration: none; color: #007aff;">Descargar para iOS (App Store)</a>
+                    </div>
+                `;
+            }
+        };
+    </script>
+</head>
+<body>
+    <p style="text-align: center; font-family: Arial, sans-serif;">Redirigiendo a tu tienda de aplicaciones...</p>
+</body>
+</html>
